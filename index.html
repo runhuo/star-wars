@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="Content-Type" content="text/html;charset=utf-8">
+		<title>星际战舰</title>
+		<meta charset="X-UA-Compatible" content="IE=edge,chrome=1">
+		<meta name="keywords" content="太空射击游戏,游戏,unity,课程设计,星际大战">
+		<meta name="description" content="重庆理工大学计算机学院综合课程设计三项目，采用主流游戏引擎unity进行开发。">
+		<meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+		<link rel="stylesheet" href="./css/index.css"/>
+		<script src="./js/libs/vue.js"></script>
+	</head>
+	<body>
+		<header id="main-page">
+			<!-- <audio autoplay loop src="./resource/audio/bgm.mp3"></audio> -->
+			<video autoplay loop muted>
+				<source type="video/mp4" src="./resource/video/index-bg.mp4"/>
+			</video>
+			<div class="header-game-logo">
+				<img src="./img/game-logo.png" alt="logo">
+				<div class="header-nav">
+					<ul class="header-nav-options">
+						<li><a href="#main-page">官网首页</a></li>
+						<li><a href="#show-warship">战舰展示</a></li>
+						<li><a href="main-page">关于我们</a></li>
+					</ul>
+				</div>
+			</div>
+			<div class="header-title-download">
+				<div class="header-title">
+					<img src="./img/title.png" alt="game-title">
+				</div>
+				<div class="header-download">
+					<input type="button" value="PC端">
+					<input type="button"  value="Web端">
+				</div>
+			</div>
+		</header>
+		<main id="show-warship">
+			<div id="warship">
+				<div class="warship-description show-warship-div">
+					<strong>{{level}}</strong>
+				</div>
+				<div class="warship-img show-warship-div">
+					<img :src="img_src" alt="warship" width="600">
+				</div>
+			</div>
+			<div id="warship-options">
+				<div class="left" @click="load_up()"></div>
+				<div class="right" @click="load_down()"></div>
+			</div>
+		</main>
+		<script src="./js/index.js"></script>
+		<footer>
+			
+		</footer>
+	</body>
+</html>

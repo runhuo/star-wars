@@ -1,0 +1,120 @@
+body {
+	margin: 0;
+	padding: 0;
+	min-width: 900px;
+}
+
+/*
+**头部样式表
+*/
+header {
+	position: relative;
+	margin: 0;
+}
+
+/*视频样式*/
+video {
+	width: 100%;
+
+}
+
+/*logo样式*/
+.header-game-logo {
+	position: absolute;
+	width: 100%;
+	top: 0%;
+	left: 0%;
+}
+
+/*头部选项的样式*/
+.header-nav {
+	float: right;
+}
+
+.header-nav-options li {
+	display: inline-block;
+	width: 100px;
+	text-align: center;
+}
+
+.header-nav-options a {
+	color: #fafafa;
+	font: 17px Microsoft YaHei, Helvetica, Arial, sans-serif;
+	text-decoration: none;
+}
+
+/*title部分样式*/
+.header-title-download {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	width: 600px;
+	transform: translate(-50%, -30%);
+}
+
+.header-download input {
+	width: 140px;
+	height: 40px;
+	margin: 78px;
+	letter-spacing: 1px;
+	color: #fafafa;
+	font: 16px Microsoft YaHei, Helvetica, Arial, sans-serif;
+	background: rgba(255, 255, 255, 0);
+	border-image-source: url("../img/button-bg.svg");
+	border-image-slice: 20 20 fill;
+	border-image-width: 100px;
+}
+
+.header-download input:hover {
+	font-size: 17px;
+	cursor: pointer;
+}
+
+
+/*战舰展示部分的样式表*/
+#show-warship{
+	position: relative;
+	width: 100%;
+	height: 800px;
+	margin-top: -3px;
+	background: url("../img/warship-bg.jpg") 0px 0px no-repeat;
+}
+#warship{
+	width: 800px;
+	height: 600px;
+	margin: 0 auto;
+	padding-top: 100px;
+}
+.show-warship-div{
+	display: inline-block;
+	vertical-align: middle;
+	margin: 0 30px;
+}
+.warship-description strong{
+	color: #fafafa;
+	font: 30px Microsoft YaHei, Helvetica, Arial, sans-serif;
+	font-weight: 600;
+	letter-spacing: 15px;
+}
+.warship-img{
+	width: 600px;
+	height: 600px;
+	margin: 0 auto;
+}
+
+/*上下选择的按钮*/
+#warship-options div{
+	position: absolute;
+	top: 50%;
+	width: 50px;
+	height: 50px;
+	cursor: pointer;
+}
+.left{
+	left: 15px;
+	background: url("../img/icon-left.png") no-repeat;
+}
+.right{
+	right: 15px;
+	background: url("../img/icon-right.png") no-repeat;
+}

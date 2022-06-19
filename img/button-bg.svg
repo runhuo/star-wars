@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="269px" height="44px" viewBox="0 0 269 44" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient x1="3.46580038%" y1="3.46580038%" x2="100%" y2="100%" id="linearGradient-1">
+            <stop stop-color="#0C3E64" stop-opacity="0.754896966" offset="0%"></stop>
+            <stop stop-color="#072E48" stop-opacity="0.5" offset="100%"></stop>
+        </linearGradient>
+        <linearGradient x1="2.15666494%" y1="2.40517231%" x2="102.377313%" y2="114.174007%" id="linearGradient-2">
+            <stop stop-color="#7DF7FF" offset="0%"></stop>
+            <stop stop-color="#237DC9" offset="55.8208184%"></stop>
+            <stop stop-color="#1C62A9" offset="100%"></stop>
+        </linearGradient>
+        <polygon id="path-3" points="0 0.000565549942 249.17791 0 269 20 269 44 20 44 0 24"></polygon>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="CTA">
+            <g id="Back_CTA">
+                <use fill="url(#linearGradient-1)" fill-rule="evenodd" xlink:href="#path-3"></use>
+                <path stroke="url(#linearGradient-2)" stroke-width="1" d="M0.5,0.500564415 L0.5,23.7928932 L20.2071068,43.5 L268.5,43.5 L268.5,20.2057995 L248.969494,0.500000473 L0.5,0.500564415 Z"></path>
+            </g>
+        </g>
+    </g>
+</svg>
