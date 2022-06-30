@@ -1,0 +1,29 @@
+body {
+	padding: 0;
+	margin: 0;
+	background: url("./warship-bg.jpg") no-repeat ;
+	background-size:cover;
+}
+
+#unity-container {
+	width: 960px;
+	margin: 50px auto;
+/* 	border: solid 10px #333333; */
+	border-radius: 3px;
+	background: #333333;
+}
+
+#unity-canvas{
+background: url("./team-logo.png");
+}
+
+#unity-footer{
+	height: 38px;
+/* 	background: #ffffff; */
+}
+#unity-fullscreen-button{
+	float: right;
+	width: 38px;
+	height: 38px;
+	background: url("./fullscreen-button.png");
+}

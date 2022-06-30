@@ -1,0 +1,53 @@
+header {
+	height: 80px;
+	background: rgba(0, 0, 0, 0.4);
+}
+
+.title {
+	float: left;
+}
+
+.download {
+	float: right;
+	margin-top: 20px;
+	margin-right: 150px;
+}
+
+.download a {
+	display:inline-block;
+	width: 150px;
+	height: 40px;
+	line-height: 40px;
+	text-align: center;
+	font-size: 17px;
+	font-family: "Microsoft YaHei";
+	text-decoration: none;
+	color: #ffffff;
+	border-image-source: url("./button-bg.svg");
+	border-image-slice: 20 20 fill;
+	border-image-width: 100px;
+	background: rgba(0, 0, 0, 0);
+}
+.download a:hover{
+	cursor: pointer;
+}
+
+
+#game-bg{
+	width: 1150px;
+	margin: 0 auto;
+}
+.game-bg-title{
+	font-family: "Microsoft YaHei";
+	color: #ffffff;
+	font-size: 25px;
+	font-weight: 600;
+	margin: 20px 0px;
+}
+.game-des{
+	font-family: "Microsoft YaHei";
+	color: #aaaaaa;
+	font-size: 16px;
+	line-height: 25px;
+	padding: 0 5px;
+}

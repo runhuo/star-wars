@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en-us">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<title>Star Wars</title>
+		<meta http-equiv="X-UA-Compatible" content="IE=edge; charset=utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1, maximum-scale=5.0, user-scalable=yes">
+		<link rel="shortcut icon" href="TemplateData/favicon.ico">
+		<link rel="stylesheet" href="TemplateData/style.css">
+		<script src="./TemplateData/libs/axios.js"></script>
+		<script src="./TemplateData/libs/vue.js"></script>
+		<link rel="stylesheet" href="./TemplateData/index.css">
+	</head>
+	<body>
+		<header>
+			<div class="title header-div">
+				<img src="./TemplateData/game-logo.png" alt="">
+			</div>
+			<div class="download header-div">
+				<a href="DownloadServlet" download="Star Wars.zip">PC端下载</a>
+			</div>
+		</header>
+		<main id="app">
+			<div id="unity-container" class="unity-desktop">
+				<canvas id="unity-canvas" width=960 height=600></canvas>
+				<div id="unity-loading-bar">
+					<div id="unity-logo"></div>
+					<div id="unity-progress-bar-empty">
+						<div id="unity-progress-bar-full"></div>
+					</div>
+				</div>
+				<div id="unity-warning"> </div>
+				<div id="unity-footer">
+					<div id="unity-fullscreen-button"></div>
+				</div>
+			</div>
+			<script>
+				var container = document.querySelector("#unity-container");
+				var canvas = document.querySelector("#unity-canvas");
+				var loadingBar = document.querySelector("#unity-loading-bar");
+				var progressBarFull = document.querySelector("#unity-progress-bar-full");
+				var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+				var warningBanner = document.querySelector("#unity-warning");
+			
+				// Shows a temporary message banner/ribbon for a few seconds, or
+				// a permanent error message on top of the canvas if type=='error'.
+				// If type=='warning', a yellow highlight color is used.
+				// Modify or remove this function to customize the visually presented
+				// way that non-critical warnings and error messages are presented to the
+				// user.
+				function unityShowBanner(msg, type) {
+					function updateBannerVisibility() {
+						warningBanner.style.display = warningBanner.children.length ? 'block' : 'none';
+					}
+					var div = document.createElement('div');
+					div.innerHTML = msg;
+					warningBanner.appendChild(div);
+					if (type == 'error') div.style = 'background: red; padding: 10px;';
+					else {
+						if (type == 'warning') div.style = 'background: yellow; padding: 10px;';
+						setTimeout(function() {
+							warningBanner.removeChild(div);
+							updateBannerVisibility();
+						}, 5000);
+					}
+					updateBannerVisibility();
+				}
+			
+				var buildUrl = "Build";
+				var loaderUrl = buildUrl + "/web.loader.js";
+				var config = {
+					dataUrl: buildUrl + "/web.data.unityweb",
+					frameworkUrl: buildUrl + "/web.framework.js.unityweb",
+					codeUrl: buildUrl + "/web.wasm.unityweb",
+					streamingAssetsUrl: "StreamingAssets",
+					companyName: "DefaultCompany",
+					productName: "StarWars",
+					productVersion: "1.0",
+					showBanner: unityShowBanner,
+				};
+				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+					container.className = "unity-mobile";
+					config.devicePixelRatio = 1;
+					unityShowBanner('WebGL builds are not supported on mobile devices.');
+				} else {
+					canvas.style.width = "960px";
+					canvas.style.height = "600px";
+				}
+				loadingBar.style.display = "block";
+			
+				var script = document.createElement("script");
+				script.src = loaderUrl;
+				script.onload = () => {
+					createUnityInstance(canvas, config, (progress) => {
+						progressBarFull.style.width = 100 * progress + "%";
+					}).then((unityInstance) => {
+						loadingBar.style.display = "none";
+						fullscreenButton.onclick = () => {
+							unityInstance.SetFullscreen(1);
+						};
+					}).catch((message) => {
+						alert(message);
+					});
+				};
+				document.body.appendChild(script);
+			</script>
+			<div id="game-bg">
+				<div class="game-bg-title">游戏背景</div>
+				<div class="game-des">
+					距离关一帆和程心进入黑域，时间已经过去了1500万年。历史上的”人类文明“早已在二向箔的打击下被彻底毁灭。虽然“人类文明”没有逃离被毁灭的结局，但人类拼尽最后的力量，终于留住了文明的火种。
+					1500万年前，“蓝色空间号”和“万有引力号”驶离人类联合舰队，驶向无尽宇宙的深处。他们也由此被人类视为叛徒。
+					如今“蓝色空间号”和“万有引力号”已经从只有1000多人的太空流浪星舰，发展成了一个全新的文明，他们自称为”星舰文明“。
+					危机纪元 1-7年，云天明的大脑被放入探测器飞向三体舰队。在三体人的帮助下，云天明重新获得了新的躯体，此后他一生都致力于重建人类文明。
+					1500万年过去,云天明建立的新文明已经进入了星舰航行时代，他们视云天明为“新人类文明“之父，并将保留了对“人类文明“的认同。
+					银河纪元1550万年，两个文明在星际航行的过程中相遇了。“星舰文明“认为”新人类文明“是”人类文明“与其他文明杂交出的异类；而”新人类文明”则视“星舰文明”为“人类文明”的背叛者。为了争夺谁才是“人类文明”的正统继承着，两个文明间爆发了星际战争......
+					你作为“星舰文明”最高星舰航天局的一名星舰飞行员，参与到了这场激烈的战争中。随着战争的进行，你逐渐接触到了“新人类文明”，并被他们的文化吸引。你惊奇地意识到，虽然两个文明已经不是严格生物意义上的相同物种，但是两个文明的文化和精神内核竟然如此相似......
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
